@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 
     <style>
         body {
-            background-color: linen;
+            background-color: cornflowerblue;
         }
 
         h1 {
@@ -27,21 +28,27 @@
             margin-left: 40px;
         }
         .Mynavitem {
-            font: 15px Georgia, sans-serif;
+            font: 18px Georgia, sans-serif;
         }
         a.Myunderline:focus, a.Myunderline:hover {
             text-decoration: underline;
+            text-decoration-color: cornflowerblue;
+
         }
-
-}
-
+        .MyDropdown {
+            font: 15px Georgia, sans-serif;
+        }
+        #bootstrap-overrides a.Myunderline {
+            color: royalblue;
+            font: 16px Georgia, sans-serif;
+        }
 
     </style>
 </head>
 
-<body>
+<body id="bootstrap-overrides">
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-        <a style="font-family:Tangerine;font-size: 36px;" class="navbar-brand" href="/">L.M.Toerner</a>
+        <a style="font-family:Tangerine;font-size: 48px;" class="navbar-brand" href="/"><img src="{% static "images/lmtoerner.jpg" %}"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
                 aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active Mynavitem">
-                    <a class="nav-link Myunderline" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link Myunderline" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown Mynavitem">
@@ -59,14 +66,14 @@
                         Sports Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item Myunderline" href="#">Rugby</a>
-                        <a class="dropdown-item Myunderline" href="#">Soccer</a>
-                        <a class="dropdown-item Myunderline" href="#">Baseball</a>
-                        <a class="dropdown-item Myunderline" href="#">Softballball</a>
-                        <a class="dropdown-item Myunderline" href="#">Football</a>
-                        <a class="dropdown-item Myunderline" href="#">Cycling</a>
-                        <a class="dropdown-item Myunderline" href="#">Hockey</a>
-                        <a class="dropdown-item Myunderline" href="#">Basketball</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Baseball</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Basketball</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Cycling</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Football</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Hockey</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Rugby</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Soccer</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Softballball</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown Mynavitem">
@@ -75,20 +82,21 @@
                         Other Clothing
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item Myunderline" href="#">T-Shirts</a>
-                        <a class="dropdown-item Myunderline" href="#">Shorts</a>
-                        <a class="dropdown-item Myunderline" href="#">Sweat Suites</a>
-                        <a class="dropdown-item Myunderline" href="#">Socks</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Shorts</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Socks</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">Sweat Suites</a>
+                        <a class="dropdown-item Myunderline MyDropdown" href="#">T-Shirts</a>
                     </div>
                 </li>
                 <li class="nav-item Mynavitem">
-                    <a class="nav-link Myunderline" href="#">About</a>
+                    <a class="nav-link Myunderline" href="/about">About</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-md-0">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </form>
         </div>
+
     </nav>
     <hr>
     <div id="content">
