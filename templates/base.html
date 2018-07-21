@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,81 +28,113 @@
             color: maroon;
             margin-left: 40px;
         }
-        .Mynavitem {
-            font: 18px Georgia, sans-serif;
-        }
-        a.Myunderline:focus, a.Myunderline:hover {
-            text-decoration: underline;
-            text-decoration-color: cornflowerblue;
 
-        }
-        .MyDropdown {
+        .Mynavitem {
             font: 15px Georgia, sans-serif;
         }
-        #bootstrap-overrides a.Myunderline {
-            color: royalblue;
-            font: 16px Georgia, sans-serif;
+        a.MyDropdown:focus, a.Myunderline:focus {
+            text-decoration: underline;
+            text-decoration-color: cornflowerblue;
+            font: 15px Georgia, sans-serif;
+        }
+        a.MyDropdown:hover, a.Myunderline:hover {
+            text-decoration: underline;
+            text-decoration-color: cornflowerblue;
+            font: 15px Georgia, sans-serif;
+        }
+
+        #bootstrap-overrides a.Myunderline, a.MyDropdown {
+            font: 15px Georgia, sans-serif;
+        }
+        #bootstrap-overrides a.Mynavitem {
+            font: 12px Georgia, sans-serif;
         }
 
     </style>
 </head>
 
-<body id="bootstrap-overrides">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-        <a style="font-family:Tangerine;font-size: 48px;" class="navbar-brand" href="/"><img src="{% static "images/lmtoerner.jpg" %}"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
-                aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<body>
+<div id="bootstrap-overrides">
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+    <a style="font-family:Tangerine;font-size: 48px;" class="navbar-brand" href="/"><img
+            src="{% static "images/lmtoerner.jpg" %}"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+            aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample09">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active Mynavitem">
-                    <a class="nav-link Myunderline" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link MyDropdown" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
 
-                <li class="nav-item dropdown Mynavitem">
-                    <a class="nav-link dropdown-toggle Myunderline" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sports Categories
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Baseball</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Basketball</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Cycling</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Football</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Hockey</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Rugby</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Soccer</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Softballball</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown Mynavitem">
-                    <a class="nav-link dropdown-toggle Myunderline" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Other Clothing
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Shorts</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Socks</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">Sweat Suites</a>
-                        <a class="dropdown-item Myunderline MyDropdown" href="#">T-Shirts</a>
-                    </div>
-                </li>
-                <li class="nav-item Mynavitem">
-                    <a class="nav-link Myunderline" href="/about">About</a>
-                </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle MyDropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sports Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item MyDropdown" href="#">Baseball</a>
+                    <a class="dropdown-item MyDropdown" href="#">Basketball</a>
+                    <a class="dropdown-item MyDropdown" href="#">Cycling</a>
+                    <a class="dropdown-item MyDropdown" href="#">Football</a>
+                    <a class="dropdown-item MyDropdown" href="#">Hockey</a>
+                    <a class="dropdown-item MyDropdown" href="#">Rugby</a>
+                    <a class="dropdown-item MyDropdown" href="#">Soccer</a>
+                    <a class="dropdown-item MyDropdown" href="#">Softball</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle MyDropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other Clothing
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item MyDropdown" href="#">Shorts</a>
+                    <a class="dropdown-item MyDropdown" href="#">Socks</a>
+                    <a class="dropdown-item MyDropdown" href="#">Sweat Suites</a>
+                    <a class="dropdown-item MyDropdown" href="#">T-Shirts</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/contact">Contact</a>
+            </li>
+        </ul>
+
+        {% if user.is_authenticated %}
+            <ul>
+                {% trans 'Welcome,' %}
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>
             </ul>
+            <ul>
+                <a class="Mynavitem" href="{% url 'auth_logout' %}">Logout</a>
+            </ul>
+        {% else %}
+            <ul>
+                <a class="Mynavitem" href="{% url 'auth_login' %}">Login</a>
+            </ul>
+            <ul>
+                <a class="Mynavitem" href="{% url 'registration_register' %}">Register</a>
+            </ul>
+        {% endif %}
+
+        <ul>
             <form class="form-inline my-2 my-md-0">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </form>
-        </div>
-
-    </nav>
-    <hr>
-    <div id="content">
-        {% block content %}{% endblock %}
+        </ul>
     </div>
+
+</nav>
+</div>
+<hr>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
 
 </body>
 </html>
