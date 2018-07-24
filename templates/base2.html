@@ -1,0 +1,178 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <title>{% block title %}LMToerner{% endblock %}</title>
+    <meta{% block meta %}{% endblock %}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block style %}
+    {% endblock %}
+    <style>
+        body {
+            background-color: cornflowerblue;
+
+        }
+        nav {
+            #border: 12px solid cadetblue;
+        }
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .Mynavitem {
+            font: 15px Georgia, sans-serif;
+        }
+        a.MyDropdown:focus, a.Myunderline:focus {
+            text-decoration: underline;
+            text-decoration-color: cornflowerblue;
+            font: 15px Georgia, sans-serif;
+        }
+        a.MyDropdown:hover, a.Myunderline:hover {
+            text-decoration: underline;
+            text-decoration-color: cornflowerblue;
+            font: 15px Georgia, sans-serif;
+        }
+
+        #content {
+            border: 12px solid cadetblue;
+
+        }
+        #bootstrap-overrides a.Myunderline, a.MyDropdown {
+            font: 15px Georgia, sans-serif;
+        }
+        #bootstrap-overrides a.Mynavitem {
+            font: 12px Georgia, sans-serif;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div id="bootstrap-overrides">
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
+
+    <a style="font-family:Tangerine;font-size: 48px;" class="navbar-brand" href="/"><img
+            src="{% static "images/lmtoerner.jpg" %}"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+            aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    {% if user.is_authenticated %}
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="Mynavitem" href="#">
+                    {% trans 'Welcome,' %}
+                    <strong>{% firstof user.get_short_name user.get_username %}&nbsp;</strong>
+                </a>
+            </li>
+            <li>
+                <a class="Mynavitem" href="{% url 'auth_logout' %}">Logout</a>
+            </li>
+            </ul>
+        {% else %}
+            <ul class="navbar-nav">>
+                <li>
+                   <a class="Mynavitem" href="{% url 'auth_login' %}">Login</a>
+                </li>
+                <li>
+                    <a class="Mynavitem" href="{% url 'registration_register' %}">Register</a>
+                </li>
+            </ul>
+        {% endif %}
+
+        <ul>
+            <form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
+        </ul>
+</div>
+
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link MyDropdown" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/mens">Mens</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/womens">Womens</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle MyDropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Team Jerseys
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item MyDropdown" href="{% url 'baseball' %}">Baseball</a>
+                    <a class="dropdown-item MyDropdown" href="#">Basketball</a>
+                    <a class="dropdown-item MyDropdown" href="#">Cycling</a>
+                    <a class="dropdown-item MyDropdown" href="#">Football</a>
+                    <a class="dropdown-item MyDropdown" href="#">Hockey</a>
+                    <a class="dropdown-item MyDropdown" href="#">Rugby</a>
+                    <a class="dropdown-item MyDropdown" href="#">Soccer</a>
+                    <a class="dropdown-item MyDropdown" href="#">Softball</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/tshirts">T-Shirts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/polos">Polos</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle MyDropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Misc.
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item MyDropdown" href="#">Shorts</a>
+                    <a class="dropdown-item MyDropdown" href="#">Socks</a>
+                    <a class="dropdown-item MyDropdown" href="#">Track Suites</a>
+                    <a class="dropdown-item MyDropdown" href="#">Caps</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link MyDropdown" href="/contact">Contact</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+</nav>
+</div>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>

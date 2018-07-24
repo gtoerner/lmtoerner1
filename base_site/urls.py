@@ -21,7 +21,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('baseball/', views.baseball, name='baseball'),
     path('contact/', views.contact, name='contact'),
+    path('contact_success/', views.contact_success, name='contact_success'),
     path('about/', include('about.urls')),
     path('admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),

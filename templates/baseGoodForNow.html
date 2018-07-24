@@ -28,19 +28,19 @@
     <style>
 
         a.MyDropdown, a.MyDropdown {
-            font: 18px Georgia, sans-serif;
+            font: 15px Georgia, sans-serif;
         }
 
         a.MyDropdown:focus, a.Myunderline:focus {
             text-decoration: underline;
             text-decoration-color: cornflowerblue;
-            font: 18px Georgia, sans-serif;
+            font: 15px Georgia, sans-serif;
         }
 
         a.MyDropdown:hover, a.Myunderline:hover {
             text-decoration: underline;
             text-decoration-color: cornflowerblue;
-            font: 18px Georgia, sans-serif;
+            font: 15px Georgia, sans-serif;
         }
 
         a.My12ptfont {
@@ -62,23 +62,23 @@
 <body>
 
 <div id="app" class="container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a style="font-family:Tangerine;font-size: 48px;" class="navbar-brand" href="/"><img
                 src="{% static "images/lmtoerner.jpg" %}"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="collapsingNavbar">
-            <ul class="navbar-nav">
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">.</a>
+                    <a class="nav-link" href="/">.<span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
 
             {% if user.is_authenticated %}
-                <ul class="navbar-nav  ml-auto">
+                <ul class="navbar-nav  mr-auto">
                     <li class="nav-item">
                         <a style="color: cornflowerblue" class="nav-link My12ptfont" href="#">
                             {% trans 'Welcome,' %}
@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: cornflowerblue" class="nav-link My12ptfont" href="{% url 'auth_logout' %}" data-target="#myModal" data-toggle="modal">Logout</a>
+                        <a style="color: cornflowerblue" class="nav-link My12ptfont" href="{% url 'auth_logout' %}">Logout</a>
                     </li>
                 </ul>
             {% else %}
@@ -104,8 +104,8 @@
     </nav>
 
 
-    <nav class="navbar navbar-expand-sm navbar-light bg-light rounded" data-toggle="affix">
-        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
+        <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link MyDropdown" href="/">Home <span class="sr-only">(current)</span></a>
